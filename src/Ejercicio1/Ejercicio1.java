@@ -10,13 +10,12 @@ public class Ejercicio1 {
         Pila temp = new Pila();
         int inssertadas = 0;
         while (!operaciones.isEmpty()) {
-            Operacion operacion = (Operacion) operaciones.pop();
             if(inssertadas >= n) {
-                break;
-            }
+                break;}
+            Operacion operacion = (Operacion) operaciones.pop();
+
             if (operacion.getEstado()) {
                 confirmadas.push(operacion);
-                temp.push(operacion);
                 inssertadas++;
             }
             temp.push(operacion);
