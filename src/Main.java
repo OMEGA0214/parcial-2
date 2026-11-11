@@ -3,7 +3,10 @@ import Ejercicio1.Operacion;
 import Ejercicio2.Ejercicio2;
 import Ejercicio3.Ejercicio3;
 import Ejercicio3.Solicitud;
+import Ejercicio4.Ejercicio4;
+import Estructuras.ArbolBin;
 import Estructuras.Cola;
+import Estructuras.Equipo;
 import Estructuras.Pila;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -50,17 +53,46 @@ public class Main {
         solicitudes.encolar(new Solicitud("S3", true, 15));
         solicitudes.encolar(new Solicitud("S4", false, 5));
 
-        Ejercicio3 ej3 = new Ejercicio3();
+//        Ejercicio3 ej3 = new Ejercicio3();
+//
+//        Cola e3 = ej3.seleccinarSolicitudes(solicitudes, 25);
+//
+//        while (!e3.isEmpty()) {
+//            Solicitud solicitud = (Solicitud) e3.desencolar();
+//            System.out.println(solicitud.getCodigo());
+//        }
+//        while (!solicitudes.isEmpty()) {
+//            Solicitud solicitud = (Solicitud) solicitudes.desencolar();
+//            System.out.println(solicitud.getCodigo());
+//        }
 
-        Cola e3 = ej3.seleccinarSolicitudes(solicitudes, 25);
+        ArbolBin<Equipo> arbol = new ArbolBin<Equipo>();
+        Equipo equipo1 = new Equipo(50);
+        Equipo equipo2 = new Equipo(30);
+        Equipo equipo3 = new Equipo(70);
+        Equipo equipo4 = new Equipo(20);
+        Equipo equipo5 = new Equipo(40);
+        Equipo equipo6 = new Equipo(60);
+        Equipo equipo7 = new Equipo(80);
+        Equipo equipo8 = new Equipo(55);
+        Equipo equipo9 = new Equipo(65);
+        arbol.insertar(equipo1);
+        arbol.insertar(equipo2);
+        arbol.insertar(equipo3);
+        arbol.insertar(equipo4);
+        arbol.insertar(equipo5);
+        arbol.insertar(equipo6);
+        arbol.insertar(equipo7);
+        arbol.insertar(equipo8);
+        arbol.insertar(equipo9);
+        Ejercicio4 ej4 = new Ejercicio4();
+        System.out.println(ej4.contarEquiposRango(arbol, 80,70));
+        arbol.inOrden();
+        arbol.eliminar(equipo1);
+        System.out.println(ej4.contarEquiposRango(arbol, 40,70));
+        arbol.eliminar(equipo1);
+        arbol.inOrden();
 
-        while (!e3.isEmpty()) {
-            Solicitud solicitud = (Solicitud) e3.desencolar();
-            System.out.println(solicitud.getCodigo());
-        }
-        while (!solicitudes.isEmpty()) {
-            Solicitud solicitud = (Solicitud) solicitudes.desencolar();
-            System.out.println(solicitud.getCodigo());
-        }
+
     }
 }
