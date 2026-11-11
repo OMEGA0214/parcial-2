@@ -1,6 +1,9 @@
 import Ejercicio1.Ejercicio1;
 import Ejercicio1.Operacion;
 import Ejercicio2.Ejercicio2;
+import Ejercicio3.Ejercicio3;
+import Ejercicio3.Solicitud;
+import Estructuras.Cola;
 import Estructuras.Pila;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -41,6 +44,23 @@ public class Main {
 //            System.out.println(acciones.pop());
 //        }
 
+        Cola<Solicitud> solicitudes = new Cola<Solicitud>();
+        solicitudes.encolar(new Solicitud("S1", false, 10));
+        solicitudes.encolar(new Solicitud("S2", true, 30));
+        solicitudes.encolar(new Solicitud("S3", true, 15));
+        solicitudes.encolar(new Solicitud("S4", false, 5));
 
+        Ejercicio3 ej3 = new Ejercicio3();
+
+        Cola e3 = ej3.seleccinarSolicitudes(solicitudes, 25);
+
+        while (!e3.isEmpty()) {
+            Solicitud solicitud = (Solicitud) e3.desencolar();
+            System.out.println(solicitud.getCodigo());
+        }
+        while (!solicitudes.isEmpty()) {
+            Solicitud solicitud = (Solicitud) solicitudes.desencolar();
+            System.out.println(solicitud.getCodigo());
+        }
     }
 }
